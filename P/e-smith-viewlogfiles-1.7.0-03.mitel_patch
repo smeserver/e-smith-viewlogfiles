@@ -1,0 +1,33 @@
+Index: e-smith-viewlogfiles/e-smith-viewlogfiles.spec
+diff -u e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.23 e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.25
+--- e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.23	Wed Aug 25 11:07:46 2004
++++ e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles	Thu Sep 16 16:42:45 2004
+@@ -6,7 +6,7 @@
+ # description : View log files
+ # navigation  : 4000 4400
+ #
+-# $Id: viewlogfiles,v 1.22 2004/01/07 01:17:14 msoulier Exp $
++# $Id: viewlogfiles,v 1.24 2004/09/16 20:39:36 msoulier Exp $
+ #----------------------------------------------------------------------
+ # copyright (C) 1999-2003 Mitel Networks Corporation
+ # 
+@@ -381,14 +381,16 @@
+     {
+         $filename = (split /\//, $filename)[-1];
+     }
+-    # Make sure that the logfile has a .log extension, because windows sucks.
+-    $filename .= '.log' unless $filename =~ /\.log$/;
+ 
+     # Otherwise, send the file. Start with the headers.
++    # Note: The Content-disposition must be attachment, or IE will view the
++    # file inline like it's told. It ignores the Content-type, but it likes
++    # the Content-disposition (an officially unsupported header) for some
++    # reason. Yay Microsoft.
+     print <<"EOF";
+ Expires: 0
+ Content-type: application/octet-stream
+-Content-disposition: inline; filename=$filename
++Content-disposition: attachment; filename=$filename
+ 
+ EOF
+     # And send the file.
