@@ -2,7 +2,7 @@ Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
 %define version 1.7.0
-%define release 05
+%define release 06
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -13,6 +13,7 @@ Patch0: e-smith-viewlogfiles-1.7.0-02.mitel_patch
 Patch1: e-smith-viewlogfiles-1.7.0-03.mitel_patch
 Patch2: e-smith-viewlogfiles-1.7.0-04.mitel_patch
 Patch3: e-smith-viewlogfiles-1.7.0-05.mitel_patch
+Patch4: e-smith-viewlogfiles-1.7.0-06.mitel_patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools
@@ -21,9 +22,15 @@ Requires: e-smith-base
 Requires: e-smith-lib >= 1.13.1-58
 Requires: perl
 Requires: perl(CGI::FormMagick)
+Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Tue Aug 16 2005 Charlie Brady <charlieb@e-smith.com>
+- [1.7.0-06]
+- Use Time::TAI64 module to convert multilog timestamps, rather than
+  external invocation of tia64nlocal.
+
 * Thu Jul 28 2005 Charlie Brady <charlieb@e-smith.com>
 - [1.7.0-05]
 - Remove false "fix" from previous change. [SF: 1227604]
@@ -261,6 +268,7 @@ Insert an e-smith-manager web panel to allow log files to be viewed.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 perl createlinks
