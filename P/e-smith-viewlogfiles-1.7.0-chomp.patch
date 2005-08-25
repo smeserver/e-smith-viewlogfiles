@@ -1,0 +1,13 @@
+diff -Nur -x '*.orig' -x '*.rej' e-smith-viewlogfiles-1.7.0/root/etc/e-smith/web/functions/viewlogfiles mezzanine_patched_e-smith-viewlogfiles-1.7.0/root/etc/e-smith/web/functions/viewlogfiles
+--- e-smith-viewlogfiles-1.7.0/root/etc/e-smith/web/functions/viewlogfiles	2005-08-24 21:14:35.168206336 -0600
++++ mezzanine_patched_e-smith-viewlogfiles-1.7.0/root/etc/e-smith/web/functions/viewlogfiles	2005-08-24 21:09:58.783223240 -0600
+@@ -397,8 +397,7 @@
+     elsif ($mac) { $nl = "\r" }
+     while (my $line = <FILE>)
+     {
+-        $line = (chomp tai64nlocal($line)) . $nl;
+-        print $line;
++        print tai64nlocal(chomp($line)) . $nl;
+     }
+     close(FILE);
+ 
