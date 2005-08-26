@@ -1,0 +1,23 @@
+Index: e-smith-viewlogfiles/e-smith-viewlogfiles.spec
+diff -u e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.29 e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.30
+--- e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.29	Mon Aug 22 14:36:18 2005
++++ e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles	Thu Aug 25 10:20:27 2005
+@@ -5,7 +5,7 @@
+ # description : View log files
+ # navigation  : 4000 4400
+ #
+-# $Id: viewlogfiles,v 1.28 2005/08/16 19:55:40 charlieb Exp $
++# $Id: viewlogfiles,v 1.29 2005/08/22 18:36:18 charlieb Exp $
+ #----------------------------------------------------------------------
+ # copyright (C) 1999-2005 Mitel Networks Corporation
+ # 
+@@ -397,8 +397,7 @@
+     elsif ($mac) { $nl = "\r" }
+     while (my $line = <FILE>)
+     {
+-        $line = (chomp tai64nlocal($line)) . $nl;
+-        print $line;
++        print tai64nlocal(chomp($line)) . $nl;
+     }
+     close(FILE);
+ 
