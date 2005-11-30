@@ -1,22 +1,15 @@
 Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
-%define version 1.7.0
-%define release 09
+%define version 1.7.2
+%define release 03
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
-Patch0: e-smith-viewlogfiles-1.7.0-02.mitel_patch
-Patch1: e-smith-viewlogfiles-1.7.0-03.mitel_patch
-Patch2: e-smith-viewlogfiles-1.7.0-04.mitel_patch
-Patch3: e-smith-viewlogfiles-1.7.0-05.mitel_patch
-Patch4: e-smith-viewlogfiles-1.7.0-06.mitel_patch
-Patch5: e-smith-viewlogfiles-1.7.0-07.mitel_patch
-Patch6: e-smith-viewlogfiles-1.7.0-08.mitel_patch
-Patch7: e-smith-viewlogfiles-1.7.0-09.mitel_patch
+Patch0: e-smith-viewlogfiles-1.7.2-02.mitel_patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools
@@ -29,6 +22,30 @@ Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Wed Nov 30 2005 Gordon Rowell <gordonr@gormand.com.au> 1.7.2-03
+- Bump release number only
+
+* Thu Oct 27 2005 Charlie Brady <charlieb@e-smith.com>
+- [1.7.2-02]
+- Avoid uninitialized variable warnings in logfile when highlistPattern is
+  unset. [SF: 1227604]
+
+* Fri Oct 14 2005 Gordon Rowell <gordonr@e-smith.com>
+- [1.7.2-01]
+- Remove L10Ns from base packages [SF: 1309520]
+
+* Fri Oct 14 2005 Gordon Rowell <gordonr@e-smith.com>
+- [1.7.1-01]
+- New dev stream before relocating L10Ns
+
+* Fri Sep 30 2005 Gordon Rowell <gordonr@e-smith.com>
+- [1.7.0-11]
+- Added Italian L10N - Thanks Filippo Carletti [SF: 1309266]
+
+* Mon Sep 26 2005 Gordon Rowell <gordonr@e-smith.com>
+- [1.7.0-10]
+- Added German L10N - Thanks Dietmar Berteld [SF: 1293325]
+
 * Thu Aug 25 2005 Charlie Brady <charlieb@e-smith.com>
 - [1.7.0-09]
 - Take II at chomp fix. [SF: 1264596]
@@ -280,13 +297,6 @@ Insert an e-smith-manager web panel to allow log files to be viewed.
 %prep
 %setup
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
 
 %build
 perl createlinks

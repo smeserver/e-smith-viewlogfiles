@@ -1,0 +1,40 @@
+Index: e-smith-viewlogfiles/e-smith-viewlogfiles.spec
+diff -u e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.31 e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.32
+--- e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles:1.31	Thu Aug 25 17:08:41 2005
++++ e-smith-viewlogfiles/root/etc/e-smith/web/functions/viewlogfiles	Thu Oct 27 16:18:43 2005
+@@ -5,7 +5,7 @@
+ # description : View log files
+ # navigation  : 4000 4400
+ #
+-# $Id: viewlogfiles,v 1.30 2005/08/25 14:20:27 charlieb Exp $
++# $Id: viewlogfiles,v 1.31 2005/08/25 21:08:41 charlieb Exp $
+ #----------------------------------------------------------------------
+ # copyright (C) 1999-2005 Mitel Networks Corporation
+ # 
+@@ -218,7 +218,7 @@
+     }
+     else
+     {
+-        $highlightPattern = undef;
++        $highlightPattern = '';
+     }
+ 
+     #------------------------------------------------------------
+@@ -242,7 +242,7 @@
+         print $fm->localise("MATCH_HEADER", { matchPattern => "$matchPattern" } );
+     }
+ 
+-    if ( defined $highlightPattern )
++    if ( $highlightPattern )
+     {
+         print "<p>\n";
+         print $fm->localise("HIGHLIGHT_HEADER", { highlightPattern => "$highlightPattern" } );
+@@ -276,7 +276,7 @@
+ 
+         $_ = tai64nlocal($_);
+         $_ = HTML::Entities::encode_entities($_);
+-        (defined $highlightPattern && /$highlightPattern/)
++        ($highlightPattern && /$highlightPattern/)
+         ? print "<b>$_</b>"
+         : print;
+     }
