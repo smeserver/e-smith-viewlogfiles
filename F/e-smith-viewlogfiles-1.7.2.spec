@@ -1,15 +1,14 @@
 Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
-%define version 1.7.2
-%define release 03
+%define version 1.8.0
+%define release 01
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
-Patch0: e-smith-viewlogfiles-1.7.2-02.mitel_patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools
@@ -22,6 +21,9 @@ Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Wed Mar 15 2006 Charlie Brady <charlie_brady@mitel.com> 1.8.0-01
+- Roll stable stream version. [SME: 1016]
+
 * Wed Nov 30 2005 Gordon Rowell <gordonr@gormand.com.au> 1.7.2-03
 - Bump release number only
 
@@ -296,7 +298,6 @@ Insert an e-smith-manager web panel to allow log files to be viewed.
 
 %prep
 %setup
-%patch0 -p1
 
 %build
 perl createlinks
