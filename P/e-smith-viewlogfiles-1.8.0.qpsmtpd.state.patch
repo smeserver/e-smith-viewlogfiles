@@ -1,0 +1,12 @@
+diff -Nur -x '*.orig' -x '*.rej' e-smith-viewlogfiles-1.8.0/root/etc/e-smith/web/functions/viewlogfiles mezzanine_patched_e-smith-viewlogfiles-1.8.0/root/etc/e-smith/web/functions/viewlogfiles
+--- e-smith-viewlogfiles-1.8.0/root/etc/e-smith/web/functions/viewlogfiles	2007-10-01 11:27:14.000000000 -0400
++++ mezzanine_patched_e-smith-viewlogfiles-1.8.0/root/etc/e-smith/web/functions/viewlogfiles	2007-10-01 11:25:05.000000000 -0400
+@@ -154,7 +154,7 @@
+                 lastlog
+                 wtmp
+                 lock
+-                state
++                (?<!qpsmtpd/)state
+                 httpd/ssl_mutex.\d*
+                 httpd/ssl_scache.pag
+                 httpd/ssl_scache.dir
