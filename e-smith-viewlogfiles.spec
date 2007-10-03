@@ -2,12 +2,14 @@ Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
 %define version 1.8.0
-%define release 2
+%define release 4
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Patch0: e-smith-viewlogfiles-1.8.0.squid_timestamps.patch
+Patch1: e-smith-viewlogfiles-1.8.0.qpsmtpd.state.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools
 BuildArchitectures: noarch
@@ -19,6 +21,12 @@ Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Mon Oct 01 2007 Charlie Brady <charlie_brady@mitel.com> 1.8.0-4
+- Allow viewing of qpsmtpd/state. [SME: 3416]
+
+* Sat Sep 29 2007 Charlie Brady <charlie_brady@mitel.com> 1.8.0-3
+- Convert squid log timestamps to localtime. [SME: 3432]
+
 * Sun Apr 29 2007 Shad L. Lords <slords@mail.com>
 - Clean up spec so package can be built by koji/plague
 
@@ -303,6 +311,8 @@ Insert an e-smith-manager web panel to allow log files to be viewed.
 
 %prep
 %setup
+%patch0 -p1
+%patch1 -p1
 
 %build
 perl createlinks
