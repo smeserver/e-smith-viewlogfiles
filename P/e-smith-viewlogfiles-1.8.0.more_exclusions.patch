@@ -5,14 +5,14 @@ diff -Nur -x '*.orig' -x '*.rej' e-smith-viewlogfiles-1.8.0/root/etc/e-smith/web
              # or not log files
              foreach (qw(
                  lastlog
-+		btmp$
++                btmp$
                  wtmp
                  lock
                  (?<!qpsmtpd/)state
                  httpd/ssl_mutex.\d*
                  httpd/ssl_scache.pag
                  httpd/ssl_scache.dir
-+		\/config$
++                \/config$
              ))
              {
                  return if $path =~ /$_/;
