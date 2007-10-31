@@ -2,7 +2,7 @@ Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
 %define version 1.8.0
-%define release 4
+%define release 5
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -10,6 +10,7 @@ Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-viewlogfiles-1.8.0.squid_timestamps.patch
 Patch1: e-smith-viewlogfiles-1.8.0.qpsmtpd.state.patch
+Patch2: e-smith-viewlogfiles-1.8.0.more_exclusions.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools
 BuildArchitectures: noarch
@@ -21,6 +22,9 @@ Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Wed Oct 31 2007 Charlie Brady <charlie_brady@mitel.com> 1.8.0-5
+- Exclude svlogd config and btmp files. [SME: 3486]
+
 * Mon Oct 01 2007 Charlie Brady <charlie_brady@mitel.com> 1.8.0-4
 - Allow viewing of qpsmtpd/state. [SME: 3416]
 
@@ -313,6 +317,7 @@ Insert an e-smith-manager web panel to allow log files to be viewed.
 %setup
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 perl createlinks
