@@ -2,7 +2,7 @@ Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
 %define version 1.8.0
-%define release 5
+%define release 6
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -22,6 +22,9 @@ Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Mon Dec 24 2007 Stephen Noble <support@dungog.net> 1.8.0-6
+- remove viewlogfile.orig [SME: 3639]
+
 * Wed Oct 31 2007 Charlie Brady <charlie_brady@mitel.com> 1.8.0-5
 - Exclude svlogd config and btmp files. [SME: 3486]
 
