@@ -23,7 +23,7 @@ AutoReqProv: no
 
 %changelog
 * Mon Dec 24 2007 Stephen Noble <support@dungog.net> 1.8.0-6
-- remove viewlogfile.orig [SME: 3639]
+- remove viewlogfile.orig [SME: 3647]
 
 * Wed Oct 31 2007 Charlie Brady <charlie_brady@mitel.com> 1.8.0-5
 - Exclude svlogd config and btmp files. [SME: 3486]
