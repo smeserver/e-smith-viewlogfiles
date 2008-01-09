@@ -2,7 +2,7 @@ Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
 %define version 1.8.0
-%define release 6
+%define release 7
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -11,6 +11,7 @@ Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-viewlogfiles-1.8.0.squid_timestamps.patch
 Patch1: e-smith-viewlogfiles-1.8.0.qpsmtpd.state.patch
 Patch2: e-smith-viewlogfiles-1.8.0.more_exclusions.patch
+Patch3: e-smith-viewlogfiles-1.8.0-show_filename.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools
 BuildArchitectures: noarch
@@ -22,6 +23,9 @@ Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Wed Jan 09 2008 Stephen Noble <support@dungog.net> 1.8.0-7
+- show log filename on panel [SME: 2770]
+
 * Mon Dec 24 2007 Stephen Noble <support@dungog.net> 1.8.0-6
 - remove viewlogfile.orig [SME: 3647]
 
@@ -321,6 +325,7 @@ Insert an e-smith-manager web panel to allow log files to be viewed.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 perl createlinks
