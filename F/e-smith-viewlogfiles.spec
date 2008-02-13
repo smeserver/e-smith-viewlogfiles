@@ -30,7 +30,7 @@ AutoReqProv: no
 - Remove <base> tags now in general [SME: 3916]
 
 * Sun Feb 10 2008 Stephen Noble <support@dungog.net> 1.8.0-8
-- Remove duplicate <base> entries [SME: 3893]
+- Remove duplicate <base> entries [SME: 3891]
 
 * Wed Jan 09 2008 Stephen Noble <support@dungog.net> 1.8.0-7
 - show log filename on panel [SME: 2770]
