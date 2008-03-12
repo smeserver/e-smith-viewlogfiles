@@ -2,7 +2,7 @@ Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
 %define version 1.8.0
-%define release 9
+%define release 10
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -14,6 +14,7 @@ Patch2: e-smith-viewlogfiles-1.8.0.more_exclusions.patch
 Patch3: e-smith-viewlogfiles-1.8.0-show_filename.patch
 Patch4: e-smith-viewlogfiles-1.8.0-rmFormTitle.patch
 Patch5: e-smith-viewlogfiles-1.8.0-tags2general.patch
+Patch6: e-smith-viewlogfiles-1.8.0-test_FORM_TITLE.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools
 BuildArchitectures: noarch
@@ -26,6 +27,9 @@ Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Wed Mar 12 2008 Shad L. Lords <slords@mail.com> 1.8.0-10
+- Remove tests for removed FORM_TITLE's [SME: 4050]
+
 * Wed Feb 13 2008 Stephen Noble <support@dungog.net> 1.8.0-9
 - Remove <base> tags now in general [SME: 3916]
 
@@ -337,6 +341,7 @@ Insert an e-smith-manager web panel to allow log files to be viewed.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 perl createlinks
