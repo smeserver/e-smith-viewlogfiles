@@ -23,13 +23,13 @@ Requires: e-smith-base
 Requires: e-smith-lib >= 1.13.1-58
 Requires: perl
 Requires: perl(CGI::FormMagick)
-Requires: e-smith-formmagick >= 1.4.0-9
+Requires: e-smith-formmagick >= 1.4.0-12
 Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
 * Sun Apr 27 2008 Jonathan Martens <smeserver-contribs@snetram.nl> 1.8.0-11
-- Add common <base> tags to e-smith-formmagick's general
+- Add common <base> tags to e-smith-formmagick's general [SME: 4281]
 
 * Wed Mar 12 2008 Shad L. Lords <slords@mail.com> 1.8.0-10
 - Remove tests for removed FORM_TITLE's [SME: 4050]
