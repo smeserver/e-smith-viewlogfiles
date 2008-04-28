@@ -23,7 +23,7 @@ Requires: e-smith-base
 Requires: e-smith-lib >= 1.13.1-58
 Requires: perl
 Requires: perl(CGI::FormMagick)
-Requires: e-smith-formmagick >= 1.4.0-9
+Requires: e-smith-formmagick >= 1.4.0-12
 Requires: perl(Time::TAI64)
 AutoReqProv: no
 
