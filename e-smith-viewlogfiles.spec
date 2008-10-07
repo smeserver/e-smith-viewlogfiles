@@ -1,21 +1,15 @@
+# $Id: e-smith-viewlogfiles.spec,v 1.12 2008/10/07 19:25:24 slords Exp $
+
 Summary: Web manager panel to provide view access to log files
 %define name e-smith-viewlogfiles
 Name: %{name}
-%define version 1.8.0
-%define release 11
+%define version 2.0.0
+%define release 1
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
-Patch0: e-smith-viewlogfiles-1.8.0.squid_timestamps.patch
-Patch1: e-smith-viewlogfiles-1.8.0.qpsmtpd.state.patch
-Patch2: e-smith-viewlogfiles-1.8.0.more_exclusions.patch
-Patch3: e-smith-viewlogfiles-1.8.0-show_filename.patch
-Patch4: e-smith-viewlogfiles-1.8.0-rmFormTitle.patch
-Patch5: e-smith-viewlogfiles-1.8.0-tags2general.patch
-Patch6: e-smith-viewlogfiles-1.8.0-test_FORM_TITLE.patch
-Patch7: e-smith-viewlogfiles-1.8.0-add2general.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildRequires: e-smith-devtools
 BuildArchitectures: noarch
@@ -28,6 +22,9 @@ Requires: perl(Time::TAI64)
 AutoReqProv: no
 
 %changelog
+* Tue Oct 7 2008 Shad L. Lords <slords@mail.com> 2.0.0-1.sme
+- Roll new stream to separate sme7/sme8 trees [SME: 4633]
+
 * Sun Apr 27 2008 Jonathan Martens <smeserver-contribs@snetram.nl> 1.8.0-11
 - Add common <base> tags to e-smith-formmagick's general [SME: 4281]
 
@@ -339,14 +336,6 @@ Insert an e-smith-manager web panel to allow log files to be viewed.
 
 %prep
 %setup
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
 
 %build
 perl createlinks
